@@ -1,4 +1,4 @@
-package init;
+package ru.alexmitrokhin.grestservice;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
