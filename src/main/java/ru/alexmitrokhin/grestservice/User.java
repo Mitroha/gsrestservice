@@ -1,20 +1,27 @@
 package ru.alexmitrokhin.grestservice;
 
+import org.hibernate.annotations.Table;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+
+@Entity
+@javax.persistence.Table(name="user")
 public class User {
 
-    private int userID;
-    private String login;
-    private String email;
-    private String password;
-    private Integer sessionID;
-    private String role;
+    @Id private int userID;
+    @Column(name="login") private String login;
+    @Column(name="email") private String email;
+    @Column(name="password") private String password;
+    @Column(name="role") private String role;
 
-    public int getUserID() {
+    @Id public int getUserID() {
         return userID;
     }
-
-    public Integer getSessionID() {
-        return sessionID;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getEmail() {
@@ -41,10 +48,6 @@ public class User {
         this.password = password;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
     public String getRole() {
         return role;
     }
@@ -53,8 +56,5 @@ public class User {
         this.role = role;
     }
 
-    public void setSessionID(Integer sessionID) {
-        this.sessionID = sessionID;
-    }
 }
 
