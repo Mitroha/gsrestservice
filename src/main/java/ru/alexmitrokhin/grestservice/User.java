@@ -1,23 +1,32 @@
 package ru.alexmitrokhin.grestservice;
 
-import org.hibernate.annotations.Table;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 
 @Entity
-@javax.persistence.Table(name="user")
+@Table(name="user")
 public class User {
 
-    @Id private int userID;
-    @Column(name="login") private String login;
-    @Column(name="email") private String email;
-    @Column(name="password") private String password;
-    @Column(name="role") private String role;
+    @Id
+    private int userID;
 
-    @Id public int getUserID() {
+    @Column
+    private String login;
+
+    @Column
+    private String email;
+
+    @Column
+    private String password;
+
+    @Column
+    private String role;
+
+    public int getUserID() {
         return userID;
     }
     public void setUserID(int userID) {

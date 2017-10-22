@@ -1,14 +1,31 @@
 package ru.alexmitrokhin.grestservice;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
-@javax.persistence.Table(name="session")
+@Table(name="session")
 public class Session {
 
-    @ManyToOne private User user;
+    @ManyToOne
+    @JoinColumn
+    private User user;
 
+    @Id
+    private Integer sessionID;
 
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setSessionID(Integer sessionID) {
+        this.sessionID = sessionID;
+    }
+
+    public Integer getSessionID() {
+        return sessionID;
+    }
 }
