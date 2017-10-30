@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.UUID;
 
 
 @Entity
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 public class User {
 
     @Id
-    private int userID;
+    private UUID userID;
 
     @Column
     private String login;
@@ -26,10 +27,10 @@ public class User {
     @Column
     private String role;
 
-    public int getUserID() {
+    public UUID getUserID() {
         return userID;
     }
-    public void setUserID(int userID) {
+    public void setUserID(UUID userID) {
         this.userID = userID;
     }
 

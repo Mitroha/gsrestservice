@@ -1,10 +1,11 @@
 package ru.alexmitrokhin.grestservice;
 
 import javax.persistence.*;
+import javax.servlet.http.HttpSession;
 
 @Entity
 @Table(name="session")
-public class Session {
+public abstract class Session implements HttpSession {
 
     @ManyToOne
     @JoinColumn
