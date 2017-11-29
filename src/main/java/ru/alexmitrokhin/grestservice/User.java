@@ -1,19 +1,15 @@
 package ru.alexmitrokhin.grestservice;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.UUID;
+import javax.persistence.*;
 
 
 @Entity
-@Table(name="user")
+@Table(name="user_table")
 public class User {
 
     @Id
-    private UUID userID;
+    //@GeneratedValue(strategy = GenerationType.AUTO) //сук
+    private String userID;
 
     @Column
     private String login;
@@ -27,10 +23,11 @@ public class User {
     @Column
     private String role;
 
-    public UUID getUserID() {
+    public String getUserID() {
         return userID;
     }
-    public void setUserID(UUID userID) {
+
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
@@ -66,5 +63,15 @@ public class User {
         this.role = role;
     }
 
+    protected User() {}
+
+    /*
+    public User(String login, String password, String email, String role) { //сук
+        this.login = login;
+        this.password = password;
+        this.email = email;
+        this.role = role;
+    }
+    */
 }
 

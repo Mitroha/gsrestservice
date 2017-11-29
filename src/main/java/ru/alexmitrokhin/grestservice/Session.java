@@ -1,32 +1,42 @@
 package ru.alexmitrokhin.grestservice;
 
 import javax.persistence.*;
-import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @Entity
 @Table(name="session")
-public abstract class Session implements HttpSession {
+public class Session {
 
     @ManyToOne
     @JoinColumn
     private User user;
 
     @Id
-    private Integer sessionID;
+    private String sessionID;
 
+    @Column
+    private Date lastActionTime;
+
+    public Date getLastActionTime() {
+        return lastActionTime;
+    }
+
+    public void setLastActionTime(Date lastActionTime) {
+        this.lastActionTime = lastActionTime;
+    }
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
-
-    public void setSessionID(Integer sessionID) {
+    public void setSessionID(String sessionID) {
         this.sessionID = sessionID;
     }
-
-    public Integer getSessionID() {
+    public String getSessionID() {
         return sessionID;
     }
+
+
+
 }
