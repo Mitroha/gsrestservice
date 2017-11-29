@@ -27,13 +27,16 @@ public class Controller {
             Gson gson = new Gson();
             String sha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex(pass);
             User user = new User();
+            UserModel userModel=new UserModel();
             user.setUserID(UUID.randomUUID().toString());
             user.setLogin(login);
             user.setPassword(sha256hex);
             user.setEmail(email);
             user.setRole(role);
+            userModel.setEmail(email);
+            userModel.setLogin(login);
             repository.save(user);
-            return gson.toJson(user);
+            return gson.toJson(userModel);
         }
         else return "User with this name already exists";
     }
