@@ -8,7 +8,6 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO) //сук
     private String userID;
 
     @Column
